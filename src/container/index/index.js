@@ -69,7 +69,7 @@ export class Todo {
     const value = this.#input.value
 
     if (value.length > 1) {
-      this.#createTaskData(this.#input.value)
+      this.#createTaskData(value)
       this.#input.value = ''
       this.#render()
       this.#saveData()
@@ -110,8 +110,8 @@ export class Todo {
 
     if (data.done) {
       el.classList.add('task--done')
-      btn.classList.remove('task__button--do')
-      btn.classList.add('task__button--done')
+      btnDo.classList.remove('task__button--do')
+      btnDo.classList.add('task__button--done')
     }
 
     return el
@@ -151,7 +151,7 @@ export class Todo {
   }
 
   static #deleteById = (id) => {
-    this.#list = this.#list.filter((item) => item.ud !== id)
+    this.#list = this.#list.filter((item) => item.id !== id)
     return true
   }
 }
